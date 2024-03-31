@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        label {
+            display: block;
+        }
+    </style>
+    <title>Formulario de registro de clientes de hotel</title>
+</head>
+
+<body>
+    <h1>Registro de usuarios</h1>
+    <!-- disabled desactiva el campo y NO lo envía al servidor pero lo deja visible (para radio, menus) -->
+    <!-- readonly lo deja en modo solo lectura y SI lo envia al servidor (para textos,date,week)-->
+    <form action="../procesar.php" method="get">
+        <label for="idnombre">Nombre:</label>
+        <input type="text" name="nombre" id="idnombre" value="Javier" readonly />
+
+        <label for="idape">Apellidos:</label>
+        <input type="text" name="ape" id="idape" value="Martínez" readonly />
+
+        <label for="idclave">Clave:</label>
+        <input type="password" name="clave" id="idclave" value="miclave" readonly />
+
+        <label for="idnacionalidad">Nacionalidad:</label>
+        <input type="text" name="nacion" id="idnacionalidad" value="España" readonly />
+
+        <label for="idemail">Email:</label>
+        <input type="email" name="email" id="idemail" value="javiermartinez@ugr.es" readonly />
+
+        <!-- selected para valores por defecto -->
+        <label for="idsexo">Sexo:</label>
+        <select name="sexo" id="idsexo">
+            <option selected>Masculino</option>
+            <option disabled>Femenino</option>
+            <option disabled>No deseo responder</option>
+        </select>
+
+        <!-- selected para valores por defecto y value=... para enviar al server lo justo -->
+        <label for="idconsent">Tratado de datos y envío a terceros:</label>
+        <select name="consent" id="idconsent">
+            <option selected value="TOTAL">Acepta el almacenamiento de mis datos y el envío a terceros</option>
+            <option disabled value="PARCIAL">Acepta el almacenamiento de mis datos pero no el envío a terceros</option>
+            <option disabled value="NINGUNO">No acepta el almacenamiento ni el envío de datos a terceros</option>
+        </select>
+
+        <!-- checked para valores por defecto -->
+        <label for="ididioma">Idioma para comunicaciones:</label>
+        <label id="ididioma">
+            <input type="radio" name="idioma" value="Español" disabled />Español
+        </label>
+        <label id="ididioma">
+            <input type="radio" name="idioma" value="Inglés" checked />Inglés
+        </label>
+        <label id="ididioma">
+            <input type="radio" name="idioma" value="Francés" disabled />Francés
+        </label>
+
+        <!-- name = preferencias[] en formato array para seleccionar varios sin errores-->
+        <label for="idpreferen">Preferencias de habitación:</label>
+        <label id="idpreferen">
+            <input type="checkbox" name="preferencias[]" value="smoking" disabled />Para fumadores
+        </label>
+        <label id="idpreferen">
+            <input type="checkbox" name="preferencias[]" value="pets" checked readonly />Que permita mascotas
+        </label>
+        <label id="idpreferen">
+            <input type="checkbox" name="preferencias[]" value="views" checked readonly />Con vistas
+        </label>
+        <label id="idpreferen">
+            <input type="checkbox" name="preferencias[]" value="carpet" disabled />Con moqueta
+        </label>
+
+        <label for="idnacim">Fecha de nacimiento:</label>
+        <input type="date" name="nacim" id="idnacim" value="2000-01-01" readonly />
+
+        <label for="idvisita">Semana prevista para visita:</label>
+        <input type="week" name="visita" id="idvisita" value="2024-W18" readonly />
+
+        <input type="hidden" name="version" value="1.0" />
+
+        <input type="submit" value="Enviar datos" />
+    </form>
+</body>
+
+</html>
