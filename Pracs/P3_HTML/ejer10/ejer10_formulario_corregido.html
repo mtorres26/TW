@@ -17,7 +17,6 @@
 <!-- Duplicate ID ididioma. (por poner varios label for=... con el mismo id para los radio buttons del idioma) -->
 <!-- Duplicate ID idpreferen. (por poner varios label for=... con el mismo id para los checkbox de las preferencias) -->
 
-
 <body>
     <h1>Registro de usuarios</h1>
     <form action="../procesar2.php" method="post" enctype="multipart/form-data">
@@ -92,7 +91,9 @@
         <label for="idfoto">Fotografía:</label>
         <input type="file" name="foto" id="idfoto" accept=".jpg" />
 
-        <input type="submit" value="Enviar datos" />
+        <label>
+            <input type="submit" value="Enviar datos" />
+        </label>
     </form>
 </body>
 
