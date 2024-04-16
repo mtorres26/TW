@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+    <style>
+        #ftecnica {
+            /* Especificidad:
+            ID,s        Clases... etc       Elementos... etc 
+            1           0                   0  
+            */
+            color: gold;
+        }
+
+        section {
+            /* Especificidad:
+            ID,s        Clases... etc       Elementos... etc 
+            0           0                   1  
+            */
+            color: green;
+        }
+
+        li>span:not(:first-child) {
+            /* Especificidad:
+            ID,s        Clases... etc       Elementos... etc 
+            0           1                   2  
+            */
+            color: aqua;
+        }
+
+        span:nth-child(2) {
+            /* Especificidad:
+            ID,s        Clases... etc       Elementos... etc 
+            0           1                   1  
+            */
+            color: red;
+        }
+
+        li span {
+            /* Especificidad:
+            ID,s        Clases... etc       Elementos... etc 
+            0           0                   2  
+            */
+            color: blue;
+        }
+
+        .enfasis {
+            /* Especificidad:
+            ID,s        Clases... etc       Elementos... etc 
+            0           1                   0  
+            */
+            color: pink;
+        }
+
+        span>li:not(:nth-last-child) {
+            /* Especificidad:
+            ID,s        Clases... etc       Elementos... etc 
+            0           1                   2  
+            */
+            color: yellow;
+        }
+
+        li:nth-child(2n) {
+            /* Especificidad:
+            ID,s        Clases... etc       Elementos... etc 
+            0           1                   1  
+            */
+            color: salmon;
+        }
+
+        #bryan {
+            /* Especificidad:
+            ID,s        Clases... etc       Elementos... etc 
+            1           0                   0  
+            */
+            color: gray;
+        }
+
+        section>ul>li.main {
+            /* Especificidad:
+            ID,s        Clases... etc       Elementos... etc 
+            0           1                   3  
+            */
+            color: royalblue;
+        }
+
+        #ftecnica h2 {
+            /* Especificidad:
+            ID,s        Clases... etc       Elementos... etc 
+            1           0                   1  
+            */
+            color: plum;
+        }
+
+        section h2 {
+            /* Especificidad:
+            ID,s        Clases... etc       Elementos... etc 
+            0           0                   2  
+            */
+            color: skyblue;
+        }
+
+        section#ftecnica li li:last-child {
+            /* Especificidad:
+            ID,s        Clases... etc       Elementos... etc 
+            1           1                   3  
+            */
+            color: sienna;
+        }
+
+        #betsy {
+            /* Especificidad:
+            ID,s        Clases... etc       Elementos... etc 
+            1           0                   0  
+            */
+            color: darkblue;
+        }
+
+        main>section>section>ul>li:last-child {
+            /* Especificidad:
+            ID,s        Clases... etc       Elementos... etc 
+            0           1                   5  
+            */
+            color: silver;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Breaking Bad</h1>
+        <h2>Serie de televisión</h2>
+    </header>
+    <main>
+        <section>
+            <h2>Argumento:</h2>
+            <p>Walter White (Bryan Cranston) es un frustrado
+                profesor de química en un instituto, padre de un joven
+                discapacitado y con una mujer (Anna Gunn) embarazada.</p>
+        </section>
+        <section id="ftecnica">
+            <h2>Ficha técnica:</h2>
+            <ul>
+                <li>Año:
+                    <span class="enfasis">2008</span>
+                </li>
+                <li>País:
+                    <span>EEUU</span>
+                </li>
+                <li>Idiomas:
+                    <span>Inglés</span>
+                    ,
+                    <span>Español</span>
+                </li>
+                <li>
+                    <span>Productores ejecutivos:</span>
+                    <ul>
+                        <li>Vince Gilligan</li>
+                        <li>Mark Johnson</li>
+                        <li>Michelle MacLaren</li>
+                    </ul>
+                </li>
+            </ul>
+            <section>
+                <h2>Protagonistas:</h2>
+                <ul>
+                    <li id="bryan" class="main">Bryan Cranston</li>
+                    <li>Aaron Paul</li>
+                    <li>Anna Gunn</li>
+                    <li>Dean Norris</li>
+                    <li id="betsy">Betsy Brandt</li>
+                </ul>
+            </section>
+        </section>
+    </main>
+    <footer>
+        <p>Datos obtenidos de
+            <span class="enfasis">Wikipedia</span>
+            y otros sitios
+        </p>
+    </footer>
+</body>
+
+</html>
