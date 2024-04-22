@@ -1,0 +1,41 @@
+.galeria {
+    max-width: 700px;
+    /* AQUI Centrar¿?¿?¿ */
+    border: 5px solid cornflowerblue;
+    background-color: lightsteelblue;
+}
+
+.fila {
+    /* AQUI Centrar */
+    margin: 5px;
+    background-color: azure;
+}
+
+em {
+    /* Para que el texto descriptivo en cursiva de las imagenes salga debajo del nombre */
+    display: block;
+}
+
+.imagen {
+    border: 1px solid black;
+    padding: 5px;
+    margin: 10px;
+    background-color: beige;
+    /* A partir de aquí modificaciones del ejer9 */
+    width: 33%;
+    display: inline-block;
+}
+
+.imagen img {
+    width: 100%;
+    border: 1px solid lightgrey;
+    padding: 5px;
+    background-color: white;
+    margin: 0;
+    box-sizing: border-box;
+    /* Para que la imagen quede centrada en el contenedor */
+}
+
+.imagen figcaption {
+    text-align: center;
+}

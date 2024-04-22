@@ -1,0 +1,23 @@
+.imagen {
+    border: 1px solid black;
+    padding: 5px;
+    margin: 10px;
+    background-color: beige;
+    width: 25%;
+    /* Le damos 25% para que no ocupe el 100% por defecto */
+}
+
+.imagen img {
+    /* El 100% es sobre el contenedor padre (figure) */
+    width: 100%;
+    border: 1px solid lightgrey;
+    padding: 5px;
+    background-color: white;
+    margin: 0;
+    box-sizing: border-box;
+    /* Para que la imagen quede centrada en el contenedor */
+}
+
+.imagen figcaption {
+    text-align: center;
+}

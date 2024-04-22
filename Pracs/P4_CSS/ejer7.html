@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7</title>
+    <style>
+        .menu {
+            background-color: wheat;
+            padding: 5px;
+            overflow: hidden;
+        }
+
+        .menu ul {
+            float: right;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            float: left;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: white;
+            border-radius: 5px;
+            padding: 10px;
+            margin-right: 5px;
+            margin-left: 5px;
+            background-color: deepskyblue;
+            display: block;
+        }
+
+        .menu a:hover {
+            background-color: brown;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: calc(5px - 5px);
+            margin-left: calc(5px - 5px);
+            border-radius: 20px;
+        }
+
+        .menu .activo {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="menu">
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#" class="activo">Sobre mi</a></li>
+            <li><a href="#">Formación</a></li>
+            <li><a href="#">Aficiones</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+    <div>
+        <p>... continua la página ...</p>
+    </div>
+</body>
+
+</html>
