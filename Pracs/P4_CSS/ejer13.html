@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 13</title>
+    <style>
+        html {
+            min-height: 100vh;
+            min-width: 100vw;
+            padding: 0;
+            margin: 1px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container h1 {
+            margin: 0;
+            color: black;
+        }
+
+        .logo img {
+            width: 200px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: lightsteelblue;
+            padding: 10px;
+        }
+
+        nav {
+            background-color: lightpink;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline-block;
+            margin-right: 20px;
+            font-size: larger;
+        }
+
+        nav a {
+            text-decoration: none;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0px;
+        }
+
+        aside {
+            flex: 0 0 calc(20% - 20px);
+            max-width: calc(25% - 20px);
+            margin-left: 10px;
+            background-color: lightslategray;
+        }
+
+        aside ul {
+            list-style: none;
+            margin: 5px;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        aside li {
+            margin-bottom: 5px;
+            font-size: large;
+        }
+
+        aside li a {
+            color: black;
+            margin: 10px;
+            text-decoration: none;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            overflow-x: auto;
+            justify-content: center;
+        }
+
+        .imagen {
+            display: flex;
+            flex-direction: column;
+            margin: 5px;
+            border: 1px solid black;
+            width: 130px;
+            align-self: flex-end;
+        }
+
+        .galeria {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .imagen img {
+            display: block;
+            max-width: 100%;
+            width: auto;
+        }
+
+        .imagen p {
+            margin: 5px;
+            text-align: center;
+            font-weight: bold;
+            font-size: x-large;
+        }
+
+        footer {
+            background-color: lightgreen;
+            color: black;
+            text-align: center;
+            font-size: x-large;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <img src="./img/logo.png">
+            </div>
+            <h1>Zooweb</h1>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Animales</a></li>
+            <li><a href="#">Localizaciones</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <main>
+            <div class="galeria">
+                <div class="imagen">
+                    <img src="./img/tucan.jpg">
+                    <p>Tucán</p>
+                </div>
+                <div class="imagen">
+                    <img src="./img/leon.jpg">
+                    <p>León</p>
+                </div>
+                <div class="imagen">
+                    <img src="./img/tigre.jpg">
+                    <p>Tigre</p>
+                </div>
+                <div class="imagen">
+                    <img src="./img/jirafa.jpg">
+                    <p>Jirafa</p>
+                </div>
+                <div class="imagen">
+                    <img src="./img/koala.jpg">
+                    <p>Koala</p>
+                </div>
+                <div class="imagen">
+                    <img src="./img/rana.jpg">
+                    <p>Rana</p>
+                </div>
+                <div class="imagen">
+                    <img src="./img/vaca.jpg">
+                    <p>Vaca</p>
+                </div>
+                <div class="imagen">
+                    <img src="./img/llama.jpg">
+                    <p>Llama</p>
+                </div>
+            </div>
+        </main>
+        <aside>
+            <ul>
+                <li><a href="#">África</a></li>
+                <li><a href="#">América</a></li>
+                <li><a href="#">Asia</a></li>
+                <li><a href="#">Europa</a></li>
+                <li><a href="#">Oceanía</a></li>
+            </ul>
+        </aside>
+    </div>
+    <footer>
+        <p>&copy; Tecnoweb</p>
+    </footer>
+</body>
+
+</html>

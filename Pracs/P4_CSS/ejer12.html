@@ -8,12 +8,109 @@
     <style>
         * {
             font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            font-size: large;
+        }
+
+        form {
+            width: 100%;
         }
 
         h1 {
             color: white;
-            padding: 10px;
+            padding: 8px;
             background-color: steelblue;
+            margin: 10px;
+            font-size: 26px;
+        }
+
+        label {
+            display: block;
+            margin: 10px;
+        }
+
+        fieldset {
+            background-color: lightcyan;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid blue;
+        }
+
+        fieldset:hover {
+            border: 8px solid steelblue;
+        }
+
+        fieldset:hover .oculto {
+            display: block;
+            margin: 3px;
+            color: steelblue;
+        }
+
+        fieldset legend {
+            font-weight: bold;
+            font-size: 18px;
+            background-color: mediumturquoise;
+            padding: 5px;
+            border: 1px solid blue;
+            width: 160px;
+            margin-left: 25px;
+        }
+
+        .subapartado {
+            width: 100%;
+            background-color: paleturquoise;
+            margin: 5px;
+            box-sizing: border-box;
+            display: inline-block;
+            padding-left: 3%;
+        }
+
+        .subsub_conborde {
+            display: inline-block;
+            border-left: 5px solid mediumturquoise;
+            padding: 20px;
+        }
+
+        .subsub_aux {
+            text-align: center;
+            display: inline-block;
+            margin-right: 20%;
+        }
+
+        .tratamiento {
+            margin: 15px;
+        }
+
+        .oculto {
+            display: none;
+        }
+
+        input[type=submit] {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background-color: mediumturquoise;
+            display: block;
+            padding-right: 40px;
+            padding-left: 40px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            font-size: 18px;
+            border: 1px solid black;
+            font-weight: bold;
+        }
+
+        input[type=text] {
+            width: 50%;
+        }
+
+        input[type=email] {
+            width: 30%;
+        }
+
+        input[type=password] {
+            width: 60%;
         }
     </style>
 </head>
@@ -21,84 +118,127 @@
 <body>
     <h1>Registro de usuarios</h1>
     <form action="./procesar2.php" method="post" enctype="multipart/form-data">
-        <div class="parte1">
-            <label for="idnombre">Nombre:</label>
-            <input type="text" name="nombre" id="idnombre" placeholder="Obligatorio" required pattern="^[A-Z][a-z]+$" />
-
-            <label for="idape">Apellidos:</label>
-            <input type="text" name="ape" id="idape" placeholder="Opcional..." pattern="^[A-Z][a-z]+" />
-
-            <label for="idfoto">Fotografía:</label>
-            <input type="file" name="foto" id="idfoto" accept=".jpg" />
-
-            <label for="iddni">DNI:</label>
-            <input type="number" name="dni" id="iddni" />
-
-            <label for="idnacim">Fecha de nacimiento:</label>
-            <input type="date" name="nacim" id="idnacim" />
-
-            <label for="idnacionalidad">Nacionalidad:</label>
-            <input type="text" name="nacion" id="idnacionalidad" value="España" />
-
-            <!-- selected para valores por defecto -->
-            <label for="idsexo">Sexo:</label>
-            <select name="sexo" id="idsexo">
-                <option>Masculino</option>
-                <option>Femenino</option>
-                <option selected>No deseo responder</option>
-            </select>
+        <fieldset>
+            <legend>Datos personales</legend>
+            <div class="subapartado">
+                <div class="subsub_aux">
+                    <label>Nombre:
+                        <input type="text" name="nombre" placeholder="Obligatorio" required pattern="^[A-Z][a-z]+$" />
+                    </label>
+                    <label>Apellidos:
+                        <input type="text" name="ape" placeholder="Opcional..." pattern="^[A-Z][a-z]+" />
+                    </label>
+                </div>
+                <div class="subsub_conborde">
+                    <label for="idfoto">Fotografía:</label>
+                    <input type="file" name="foto" id="idfoto" accept=".jpg" />
+                </div>
+            </div>
+            <div class="subapartado">
+                <div class="subsub_aux">
+                    <label>DNI:
+                        <input type="number" name="dni" />
+                    </label>
+                    <label>Fecha de nacimiento:
+                        <input type="date" name="nacim" />
+                    </label>
+                </div>
+                <div class="subsub_aux">
+                    <label>Nacionalidad:
+                        <input type="text" name="nacion" value="España" />
+                    </label>
+                    <!-- selected para valores por defecto -->
+                    <label>Sexo:
+                        <select name="sexo">
+                            <option>Masculino</option>
+                            <option>Femenino</option>
+                            <option selected>No deseo responder</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div class="oculto">
+                <p>En cumplimiento del Real Decreto 933/2021, de 26 de octubre, estos datos serán comunicados al centro
+                    de datos de la Dirección General de la Policía.</p>
+            </div>
+        </fieldset>
         </div>
 
-        <label for="idemail">Email:</label>
-        <!-- pattern con expresion regular de email segun W3-->
-        <input type="email" name="email" id="idemail" placeholder="Correo electrónico..."
-            pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" />
+        <fieldset>
+            <legend>Datos de acceso</legend>
+            <div class="subapartado">
+                <label>Email:
+                    <!-- pattern con expresion regular de email segun W3-->
+                    <input type="email" name="email" placeholder="Correo electrónico..."
+                        pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" />
+                </label>
+            </div>
+            <div class="subapartado">
+                <div class="subsub_aux">
+                    <label>Clave:
+                        <input type="password" name="clave" placeholder="Introduzca una clave..." />
+                    </label>
+                </div>
+                <div class="subsub_aux">
+                    <label>Repita la clave:
+                        <input type="password" name="clave" id="idclave" placeholder="Introduzca la misma clave..." />
+                    </label>
+                </div>
+            </div>
+            <div class="oculto">
+                <p>Usted podrá acceder al sistema en cualquier momento mediante estos datos. Asegúrese de escribir una
+                    clave que pueda recordar con posterioridad. Si la olvida siempre podrá recuperarla a través de su
+                    correo electrónico.</p>
+            </div>
+        </fieldset>
 
-
+        <fieldset>
+            <legend>Preferencias</legend>
+            <div class="subsub_aux">
+                <!-- checked para valores por defecto -->
+                <label>Idioma para comunicaciones:</label>
+                <label>
+                    <input type="radio" name="idioma" value="Español" />Español
+                </label>
+                <label>
+                    <input type="radio" name="idioma" value="Inglés" checked />Inglés
+                </label>
+                <label>
+                    <input type="radio" name="idioma" value="Francés" />Francés
+                </label>
+            </div>
+            <div class="subsub_conborde">
+                <!-- name = preferencias[] en formato array para seleccionar varios sin errores-->
+                <label>Preferencias de habitación:</label>
+                <label>
+                    <input type="checkbox" name="preferencias[]" value="smoking" />Para fumadores
+                </label>
+                <label>
+                    <input type="checkbox" name="preferencias[]" value="pets" />Que permita mascotas
+                </label>
+                <label>
+                    <input type="checkbox" name="preferencias[]" value="views" />Con vistas
+                </label>
+                <label>
+                    <input type="checkbox" name="preferencias[]" value="carpet" />Con moqueta
+                </label>
+            </div>
+            <div class="oculto">
+                <p>Marque el idioma con el que tenga más facilidad de comunicación y una o varias preferencias sobre el
+                    tipo de habitación que desea.</p>
+            </div>
+        </fieldset>
 
         <!-- selected para valores por defecto y value=... para enviar al server lo justo -->
-        <label for="idconsent">Tratado de datos y envío a terceros:</label>
-        <select name="consent" id="idconsent">
-            <option selected value="TOTAL">Acepta el almacenamiento de mis datos y el envío a terceros</option>
-            <option value="PARCIAL">Acepta el almacenamiento de mis datos pero no el envío a terceros</option>
-            <option value="NINGUNO">No acepta el almacenamiento ni el envío de datos a terceros</option>
-        </select>
-
-        <!-- checked para valores por defecto -->
-        <label>Idioma para comunicaciones:</label>
-        <label>
-            <input type="radio" name="idioma" value="Español" />Español
-        </label>
-        <label>
-            <input type="radio" name="idioma" value="Inglés" checked />Inglés
-        </label>
-        <label>
-            <input type="radio" name="idioma" value="Francés" />Francés
-        </label>
-
-        <!-- name = preferencias[] en formato array para seleccionar varios sin errores-->
-        <label>Preferencias de habitación:</label>
-        <label>
-            <input type="checkbox" name="preferencias[]" value="smoking" />Para fumadores
-        </label>
-        <label>
-            <input type="checkbox" name="preferencias[]" value="pets" />Que permita mascotas
-        </label>
-        <label>
-            <input type="checkbox" name="preferencias[]" value="views" />Con vistas
-        </label>
-        <label>
-            <input type="checkbox" name="preferencias[]" value="carpet" />Con moqueta
-        </label>
-
-
-
-        <label for="idvisita">Semana prevista para visita:</label>
-        <input type="week" name="visita" id="idvisita" />
-
-        <input type="hidden" name="version" value="1.0" />
-
-
+        <div class="tratamiento">
+            <label>Tratado de datos y envío a terceros:
+                <select name="consent">
+                    <option selected value="TOTAL">Acepta el almacenamiento de mis datos y el envío a terceros</option>
+                    <option value="PARCIAL">Acepta el almacenamiento de mis datos pero no el envío a terceros</option>
+                    <option value="NINGUNO">No acepta el almacenamiento ni el envío de datos a terceros</option>
+                </select>
+            </label>
+        </div>
 
         <label>
             <input type="submit" value="Enviar datos" />
