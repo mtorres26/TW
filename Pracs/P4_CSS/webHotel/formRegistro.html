@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        label {
+            display: block;
+        }
+    </style>
+    <title>Formulario de registro de clientes de hotel</title>
+</head>
+
+<body>
+    <header>
+        <h1>Hotel Punta Rincón</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="inicio.html">Presentacion</a></li>
+            <li><a href="formRegistro.html">Formulario reserva</a></li>
+            <li><a href="tiposHab.html">Tipos habitaciones</a></li>
+            <li><a href="servDisp.html">Servicios ofrecidos</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>Registro de usuarios</h2>
+        <form action="../procesar2.php" method="post" enctype="multipart/form-data">
+            <label for="idnombre">Nombre:</label>
+        <input type="text" name="nombre" id="idnombre" placeholder="Obligatorio" required pattern="^[A-Z][a-z]+$" />
+
+        <label for="idape">Apellidos:</label>
+        <input type="text" name="ape" id="idape" placeholder="Opcional..." pattern="^[A-Z][a-z]+" />
+
+        <label for="idclave">Clave:</label>
+        <input type="password" name="clave" id="idclave" placeholder="Introduzca una clave..." />
+
+        <label for="idnacionalidad">Nacionalidad:</label>
+        <input type="text" name="nacion" id="idnacionalidad" value="España" />
+
+        <label for="idemail">Email:</label>
+        <!-- pattern con expresion regular de email segun W3-->
+        <input type="email" name="email" id="idemail" placeholder="Correo electrónico..."
+            pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" />
+
+        <!-- selected para valores por defecto -->
+        <label for="idsexo">Sexo:</label>
+        <select name="sexo" id="idsexo">
+            <option>Masculino</option>
+            <option>Femenino</option>
+            <option selected>No deseo responder</option>
+        </select>
+
+        <!-- selected para valores por defecto y value=... para enviar al server lo justo -->
+        <label for="idconsent">Tratado de datos y envío a terceros:</label>
+        <select name="consent" id="idconsent">
+            <option selected value="TOTAL">Acepta el almacenamiento de mis datos y el envío a terceros</option>
+            <option value="PARCIAL">Acepta el almacenamiento de mis datos pero no el envío a terceros</option>
+            <option value="NINGUNO">No acepta el almacenamiento ni el envío de datos a terceros</option>
+        </select>
+
+        <!-- checked para valores por defecto -->
+        <label>Idioma para comunicaciones:</label>
+        <label>
+            <input type="radio" name="idioma" value="Español" />Español
+        </label>
+        <label>
+            <input type="radio" name="idioma" value="Inglés" checked />Inglés
+        </label>
+        <label>
+            <input type="radio" name="idioma" value="Francés" />Francés
+        </label>
+
+        <!-- name = preferencias[] en formato array para seleccionar varios sin errores-->
+        <label>Preferencias de habitación:</label>
+        <label>
+            <input type="checkbox" name="preferencias[]" value="smoking" />Para fumadores
+        </label>
+        <label>
+            <input type="checkbox" name="preferencias[]" value="pets" />Que permita mascotas
+        </label>
+        <label>
+            <input type="checkbox" name="preferencias[]" value="views" />Con vistas
+        </label>
+        <label>
+            <input type="checkbox" name="preferencias[]" value="carpet" />Con moqueta
+        </label>
+
+        <label for="idnacim">Fecha de nacimiento:</label>
+        <input type="date" name="nacim" id="idnacim" />
+
+        <label for="idvisita">Semana prevista para visita:</label>
+        <input type="week" name="visita" id="idvisita" />
+
+        <input type="hidden" name="version" value="1.0" />
+
+        <label for="idfoto">Fotografía:</label>
+        <input type="file" name="foto" id="idfoto" accept=".jpg" />
+
+        <label>
+            <input type="submit" value="Enviar datos" />
+        </label>
+        </form>
+    </main>
+
+    <aside>
+        <section>
+            <h3>Más info:</h3>
+            <ul>
+                <li>Opiniones de clientes.</li>
+                <li>Más fotos.</li>
+            </ul>
+        </section>
+    </aside>
+
+    <footer>
+        <section>
+            <h3>Si necesitas ayuda, no dudes en ponerte en contacto con nosotros.</h3>
+        </section>
+        <section>
+            <ul>
+                <li><a href="formRegistro.html">Formulario reserva</a></li>
+                <li><strong>Teléfono de contacto:</strong> 958 95 89 58.</li>
+                <li><strong>Correo electrónico:</strong> hotelhotel@gmail.com</li>
+                <li><strong>Encuéntranos en:</strong> C/ Virgen del Carmen, 33.</li>
+            </ul>
+        </section>
+    </footer>
+</body>
+
+</html>
