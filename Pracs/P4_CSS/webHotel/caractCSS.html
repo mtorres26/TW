@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Características CSS adaptable</title>
+</head>
+<body>
+    <h1>Características del CSS adaptable</h1>
+    <main>
+        <h2>Resoluciones entre 600px y 1024px</h2>
+        <ul>
+            <li>Los elementos "h2" no deben de salirse de la caja de contenidos al ir minimizando progresivamente la ventana.
+            </li>
+            <li>Análogamente lo mismo debe de suceder con las imágenes.</li>
+            <li>El "aside" no debe superponerse a los demás elementos.</li>
+            <li>Los elementos del "nav" no deben superponerse entre ellos mismos al ir minimizando progresivamente la ventana.</li>
+        </ul>
+
+        <h2>Resoluciones menores de 600px</h2>
+        <ul>
+            <li>Los elementos con imágenes se disponen en la misma fila todos para ocupar menos ancho.</li>
+            <li>El "nav" se dispone en filas para ocupar menos espacio y que sea igual de legible.</li>
+            <li>Desaparece el elemento "aside"</li>
+        </ul>
+    </main>
+</body>
+</html>

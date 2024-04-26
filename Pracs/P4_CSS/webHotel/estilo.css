@@ -90,24 +90,29 @@
     }
 
     .container .servDisp li {
-        width: 30%;
+        width: 80%;
         align-self: center;
         list-style-type: none;
         background-color: beige;
         padding: 5px;
-        padding-right: 182px;
+        padding-right: 5%;
         margin: 3%;
         font-size: large;
     }
 
     .servDisp img {
-        max-width: 400px;
+        max-width: 100%;
         align-self: center;
+    }
+
+    .figAux {
+        width: 70%;
     }
 
     figure {
         margin: 40px;
         flex-basis: 40%;
+        width: 60%;
     }
 
     figcaption {
@@ -143,6 +148,10 @@
         width: 50%;
         box-sizing: border-box;
         margin: 0;
+    }
+
+    .tiposHab h2 {
+        width: 60%;
     }
 
     .tiposHab .parteder {
@@ -284,6 +293,27 @@
         margin: 0;
         text-align: center;
     }
+
+    .habit {
+        background-color: beige;
+        padding: 2px;
+        margin: 3%;
+        border: 2px solid beige;
+        width: 90%;
+    }
+
+    .habit:hover {
+        border: 2px solid black;
+    }
+
+    .habit h3 {
+        margin-left: 2%;
+    }
+
+    .habit section {
+        border: 1px solid black;
+    }
+
 }
 
 @media screen and (min-width: 600px) and (max-width: 1024px) {
@@ -361,7 +391,7 @@
     h2 {
         background-color: beige;
         padding: 5px;
-        width: 15%;
+        width: 20%;
         margin: auto;
         text-align: center;
     }
@@ -396,7 +426,7 @@
     figure {
         margin: 40px;
         flex-basis: 40%;
-        width: 40%;
+        width: 50%;
     }
 
     figcaption {
@@ -444,7 +474,7 @@
 
 
     .tiposHab h2 {
-        width: 40%;
+        width: 60%;
     }
 
     .parteizq>section {
@@ -577,6 +607,26 @@
         list-style-type: none;
         margin: 0;
         text-align: center;
+    }
+
+    .habit {
+        background-color: beige;
+        padding: 2px;
+        margin: 3%;
+        border: 2px solid beige;
+        width: 90%;
+    }
+
+    .habit:hover {
+        border: 2px solid black;
+    }
+
+    .habit h3 {
+        margin-left: 2%;
+    }
+
+    .habit section {
+        border: 1px solid black;
     }
 }
 
@@ -867,5 +917,25 @@
         list-style-type: none;
         margin: 0;
         text-align: center;
+    }
+
+    .habit {
+        background-color: beige;
+        padding: 2px;
+        margin: 3%;
+        border: 2px solid beige;
+        width: 90%;
+    }
+
+    .habit:hover {
+        border: 2px solid black;
+    }
+
+    .habit h3 {
+        margin-left: 2%;
+    }
+
+    .habit section {
+        border: 1px solid black;
     }
 }
