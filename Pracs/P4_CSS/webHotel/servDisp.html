@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servicios Disponibles</title>
+    <link rel="stylesheet" href="estilo.css">
 </head>
 
 <body>
@@ -16,73 +17,73 @@
             <li><a href="inicio.html">Presentacion</a></li>
             <li><a href="formRegistro.html">Formulario reserva</a></li>
             <li><a href="tiposHab.html">Tipos habitaciones</a></li>
-            <li><a href="servDisp.html">Servicios ofrecidos</a></li>
+            <li><a class="actual" href="servDisp.html">Servicios ofrecidos</a></li>
         </ul>
     </nav>
 
     <main>
         <h2>Servicios disponibles</h2>
-        <section>
-            <ul>
+        <section class="container">
+            <ul class="servDisp">
                 <li>
                     Limpieza de habitaciones.
-                    <p><img src="../img/limpiezahotel.jpeg" width="200" alt="Personal de limpieza cambiando sábanas."/></p>
+                    <p><img src="../img/limpiezahotel.jpeg" alt="Personal de limpieza cambiando sábanas." />
+                    </p>
                 </li>
                 <li>
                     Reparto de comida a su habitacion.
-                    <p><img src="../img/reparto.jpeg" width="200" alt="Camarero portando una bandeja."/></p>
+                    <p><img src="../img/reparto.jpeg" alt="Camarero portando una bandeja." /></p>
                 </li>
                 <li>
                     Gimnasio.
-                    <p><img src="../img/gimnasio.jpeg" width="200" alt="Gimnasio con diferentes máquinas."/></p>
+                    <p><img src="../img/gimnasio.jpeg" alt="Gimnasio con diferentes máquinas." /></p>
                 </li>
                 <li>
                     Sauna.
-                    <p><img src="../img/sauna.jpg" width="200" alt="Sauna con vistas."/></p>
+                    <p><img src="../img/sauna.jpg" alt="Sauna con vistas." /></p>
                 </li>
                 <li>
                     Servicio de lavandería.
-                    <p><img src="../img/lavanderia.jpg" width="200" alt="Múltiples lavadoras."/></p>
+                    <p><img src="../img/lavanderia.jpg" alt="Múltiples lavadoras." /></p>
                 </li>
 
                 <li>
                     Restaurante.
-                    <p><img src="../img/restaurante.jpg" width="200" alt="Restaurante con buffet libre."/></p>
+                    <p><img src="../img/restaurante.jpg" alt="Restaurante con buffet libre." /></p>
                 </li>
 
                 <li>
                     Piscina.
-                    <p><img src="../img/piscina.jpg" width="200" alt="Piscina de 12 metros y solarium."/></p>
+                    <p><img src="../img/piscina.jpg" alt="Piscina de 12 metros y solarium." /></p>
                 </li>
 
                 <li>
                     Organización de celebraciones.
-                    <p><img src="../img/celebraciones.jpg" width="200" alt="Salón de actos con varias mesas circulares."/></p>
+                    <p><img src="../img/celebraciones.jpg" alt="Salón de actos con varias mesas circulares." /></p>
                 </li>
             </ul>
+            <aside>
+                <section>
+                    <h3>Más info:</h3>
+                    <ul>
+                        <li><a href="#">Opiniones de clientes.</a></li>
+                        <li><a href="#">Más fotos.</a></li>
+                    </ul>
+                </section>
+            </aside>
         </section>
+        
     </main>
 
-    <aside>
-        <section>
-            <h3>Más info:</h3>
-            <ul>
-                <li>Opiniones de clientes.</li>
-                <li>Más fotos.</li>
-            </ul>
-        </section>
-    </aside>
-
     <footer>
-        <section>
-            <h3>Si necesitas ayuda, no dudes en ponerte en contacto con nosotros.</h3>
-        </section>
+        <h3>Si necesitas ayuda, no dudes en ponerte en contacto con nosotros.</h3>
         <section>
             <ul>
                 <li><a href="formRegistro.html">Formulario reserva</a></li>
                 <li><strong>Teléfono de contacto:</strong> 958 95 89 58.</li>
                 <li><strong>Correo electrónico:</strong> hotelhotel@gmail.com</li>
                 <li><strong>Encuéntranos en:</strong> C/ Virgen del Carmen, 33.</li>
+                <li>Enlace a las <a href="">características de CSS adaptable</a> que se han utilizado.</li>
             </ul>
         </section>
     </footer>

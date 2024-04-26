@@ -1,0 +1,216 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    text-align: center;
+    background-color: beige;
+    font-size: x-large;
+    width: 100%;
+    padding: 2px;
+}
+
+nav {
+    margin: 0;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding-left: 0;
+    height: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0;
+    display: inline;
+    border: 0;
+    justify-self: left;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: gray;
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 0;
+    margin-left: 0;
+    background-color: white;
+    border: 1px solid gray;
+
+}
+
+.actual {
+    background-color: cornflowerblue;
+    color: white;
+}
+
+main {
+    background-color: #b0cbf5;
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    width: 100%;
+}
+
+h2 {
+    background-color: beige;
+    padding: 5px;
+    width: 15%;
+    margin: auto;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+
+.container .servDisp {
+    width: 50%;
+    margin-top: 3%;
+}
+
+.container .servDisp li {
+    width: 30%;
+    align-self: center;
+    list-style-type: none;
+    background-color: beige;
+    padding: 5px;
+    padding-right: 180px;
+    margin: 3%;
+    font-size: large;
+}
+
+.servDisp img {
+    max-width: 400px;
+    align-self: center;
+}
+
+figure {
+    margin: 40px;
+    flex-basis: 40%;
+}
+
+figcaption {
+    background-color: beige;
+    font-size: large;
+    padding: 2px 2px 0 2px;
+    align-self: center;
+}
+
+figcaption li {
+    list-style-type: square;
+}
+
+figure img {
+    width: 100%;
+    border: 1px solid beige;
+    padding: 5px;
+    background-color: beige;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.segunda {
+    margin-top: 40%;
+}
+
+.tiposHab {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tiposHab .parteizq {
+    width: 50%;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.tiposHab .parteder {
+    width: 50%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 5px;
+    justify-self: center;
+}
+
+.parteizq>section {
+    width: 400px;
+    padding: 5px;
+    align-self: center;
+}
+
+.parteder ul {
+    background-color: beige;
+    width: 40%;
+    font-size: large;
+    margin-left: 30%;
+    padding-top: 2px;
+    padding-bottom: 4px;
+}
+
+.parteder ul li {
+    margin-top: 3%;
+}
+
+.tiposHab section section {
+    background-color: beige;
+    margin: 5px;
+}
+
+.tiposHab img {
+    max-width: 400px;
+}
+
+aside {
+    height: 10%;
+    margin: 10%;
+    justify-self: right;
+    align-self: right;
+}
+
+aside section {
+    background-color: beige;
+    text-align: center;
+    justify-self: right;
+    align-self: right;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.parteizq {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+footer {
+    width: auto;
+    font-size: large;
+    text-align: center;
+}
+
+footer h3 {
+    background-color: beige;
+    padding: 15px 0 15px 15px;
+    margin: 0;
+}
+
+footer section {
+    background-color: lightgray;
+    padding: 20px;
+}
+
+footer ul {
+    list-style-type: none;
+    margin: 0;
+    text-align: center;
+}
