@@ -12,8 +12,8 @@
     # Si ya hemos usado el formulario, guardamos la cookie con el idioma seleccionado
     if (isset($_POST['idioma'])) {
         $idioma = $_POST['idioma'];
-        setcookie('idioma', $_POST['idioma'], time() + (86400 * 1), '/');
-        header('Location: ' . $_SERVER['PHP_SELF']);
+        setcookie('idioma', $_POST['idioma']);
+        header("Location: {$_SERVER['SCRIPT_NAME']}");
     }
 
     # Si ya hemos guardado la cookie, la leemos
@@ -50,7 +50,6 @@
         </select>
         <button type="submit"><?php echo $mensaje_aplicar; ?></button>
     </form>
-
     <p><a href="usoCookies.php"><?php echo $mensaje_enlace; ?></a></p>
 </body>
 
