@@ -4,8 +4,6 @@ require_once 'funcionesbbdd.php';
 
 session_start();
 
-$db = conectar_bd();
-
 function acabarSesion()
 {
     // La sesión debe estar iniciada
@@ -36,6 +34,7 @@ function comprobarDatos($p)
         $res['nombre'] = "El nombre no es válido";
     } else {
         $_SESSION['nombre'] = $p['nombre'];
+        $res['nombre'] = "";
     }
     if(isset($p['ape'])){
         $_SESSION['ape'] = $p['ape'];
@@ -44,11 +43,13 @@ function comprobarDatos($p)
         $res['dni'] = "El DNI no es válido";
     } else {
         $_SESSION['dni'] = $p['dni'];
+        $res['dni'] = "";
     }
     if (!isset($p['nacim']) || !preg_match("/[0-9]{4}-[0-9]{2}-[0-9]{2}$/", $p['nacim']) || date($p['nacim']) > date("2006-05-12")) {
         $res['nacim'] = "La fecha de nacimiento no es válida";
     } else {
         $_SESSION['nacim'] = $p['nacim'];
+        $res['nacim'] = "";
     }
     if(isset($p['nacion'])){
         $_SESSION['nacion'] = $p['nacion'];
@@ -57,26 +58,31 @@ function comprobarDatos($p)
         $res['sexo'] = "El sexo no es válido";
     } else {
         $_SESSION['sexo'] = $p['sexo'];
+        $res['sexo'] = "";
     }
     if (!isset($p['email']) || !filter_var($p['email'], FILTER_VALIDATE_EMAIL)) {
         $res['email'] = "El email no es válido";
     } else {
         $_SESSION['email'] = $p['email'];
+        $res['email'] = "";
     }
     if (!isset($p['clave1']) || ($p['clave1'] != $p['clave2'])) {
         $res['clave1'] = "La clave no es válida";
     } else {
         $_SESSION['clave1'] = $p['clave1'];
+        $res['clave1'] = "";
     }
     if (!isset($p['clave2']) || ($p['clave2'] != $p['clave1'])) {
         $res['clave1'] = "La clave no es válida";
     } else {
         $_SESSION['clave2'] = $p['clave2'];
+        $res['clave1'] = "";
     }
     if (!isset($p['idioma']) || !preg_match("/^(Español|Inglés|Francés)$/", $p['idioma'])) {
         $res['idioma'] = "El idioma no es válido";
     } else {
         $_SESSION['idioma'] = $p['idioma'];
+        $res['idioma'] = "";
     }
     
     if (isset($p['preferencias[]']) && preg_match("/^(smoking|pets|views|carpet)$/", $p['preferencias[]'])) {
@@ -87,25 +93,25 @@ function comprobarDatos($p)
         $res['consent'] = "El consentimiento no es válido";
     } else {
         $_SESSION['consent'] = $p['consent'];
+        $res['consent'] = "";
     }
 
-    if(isset($res)){
-        return $res;
+    return $res;
+    
+}
+
+# Funcion que comprueba si hay errores
+function hayErrores($arrayErrores){
+    foreach($arrayErrores as $error){
+        if($error != ""){
+            return true;
+        }
     }
+    return false;
 }
 
-$arrayErrores = comprobarDatos($_GET);
-
-# Si no hay errores, se deshabilita el formulario
-if(!empty($arrayErrores)){
-    $readonly = "";
-    $datosRec = false;
-} else if(isset($_GET['envio'])){
-    $readonly = "readonly";
-    $datosRec = true;
-}
-
-function HTMLForm($nombre, $apellidos, $dni, $nacim, $nacion, $sexo, $email, $clave, $idioma, $preferencias, $consent){
+# Funcion que genera el formulario
+function HTMLForm($variables, $arrayErrores){
 echo<<<HTML
     <!DOCTYPE html>
     <html lang="es">
@@ -408,9 +414,10 @@ echo            "<div class="subapartado">
     </body>
     
     </html>
-
+"
 }
 
+# Funcion para generar la tabla de tuplas
 function HTMLTuplas($usuarios){
     echo<<<HTML
     <!DOCTYPE html>
@@ -485,13 +492,86 @@ function HTMLTuplas($usuarios){
     HTML;
 }
 
+# Funcion que inicializa las variables del formulario a vacío o las iguala al array de sesion
+function inicializaVariables(){
+    if(isset($_SESSION['nombre'])){
+        $variables['nombre'] = $_SESSION['nombre'];
+    } else {
+        $variables['nombre'] = "";
+    } 
+    if(isset($_SESSION['ape'])){
+        $variables['ape'] = $_SESSION['ape'];
+    } else{
+        $variables['ape'] = "";
+    }
+    if(isset($_SESSION['dni'])){
+        $dni = $_SESSION['dni'];
+    } else{
+        $dni = "";
+    }
+    if(isset($_SESSION['nacim'])){
+        $nacim = $_SESSION['nacim'];
+    } else {
+        $nacim = "";
+    }
+    if(isset($_SESSION['nacion'])){
+        $nacion = $_SESSION['nacion'];
+    } else {
+        $nacion = "";
+    }
+    if(isset($_SESSION['sexo'])){
+        $sexo = $_SESSION['sexo'];
+    } else {
+        $sexo = "";
+    }
+    if(isset($_SESSION['email'])){
+        $email = $_SESSION['email'];
+    } else {
+        $email = "";
+    }
+    if(isset($_SESSION['clave1'])){
+        $clave = $_SESSION['clave1'];
+    } else {
+        $clave = "";
+    }
+    if(isset($_SESSION['idioma'])){
+        $idioma = $_SESSION['idioma'];
+    } else {
+        $idioma = "";
+    }
+    if(isset($_SESSION['preferencias'])){
+        $preferencias = $_SESSION['preferencias'];
+    } else {
+        $preferencias = "";
+    }
+    if(isset($_SESSION['consent'])){
+        $consent = $_SESSION['consent'];
+    } else {
+        $consent = "";
+    }
+    return $variables;
+}
 
-HTMLForm();
+
+$db = conectar_bd();
+
+$arrayErrores = comprobarDatos($_GET);
+
+# Si no hay errores, se deshabilita el formulario
+if(hayErrores($arrayErrores)){
+    $readonly = "";
+} else if(isset($_GET['envio'])){
+    $readonly = "readonly";
+}
+
+$variables = inicializaVariables();
+
+HTMLForm($variables, $arrayErrores);
 HTMLTuplas(obtener_usuarios());
 
 desconectar_bd($db);
 
 # Se finaliza la sesion si todo esta correcto
-#if(empty($arrayErrores) && isset($_GET['envio'])){
-#    acabarSesion();
-#}?>
+if(!hayErrores($arrayErrores) && isset($_GET['envio'])){
+    acabarSesion();
+}?>
