@@ -1,22 +1,20 @@
 <?php
-require 'conexionbbdd.php';
+require_once 'conexionbbdd.php';
 
-function insertar_usuario($nombre, $apellidos, $email, $password)
+function insertar_usuario($conexion, $nombre, $apellidos, $dni, $nacim, $nacion, $sexo, $email, $clave, $idioma, $preferencias, $consentimiento)
 {
-    $conexion = conectar_bd();
-    $sql = "INSERT INTO usuarios (nombre, apellidos, email, password) VALUES ('$nombre', '$apellidos', '$email', '$password')";
+    $claveHash = password_hash($clave, PASSWORD_DEFAULT);
+    $sql = "INSERT INTO usuarios (nombre, apellidos, dni, fechanac, nacionalidad, sexo, email, clave, idioma, preferencias, tratamiento) VALUES ('$nombre', '$apellidos', '$dni', '$nacim', '$nacion', '$sexo', '$email', '$claveHash', '$idioma', '$preferencias', '$consentimiento')";
     $resultado = mysqli_query($conexion, $sql);
     if ($resultado) {
         echo "Usuario insertado correctamente";
     } else {
         echo "Error al insertar el usuario";
     }
-    desconectar_bd($conexion);
 }
 
-function obtener_usuarios()
+function obtener_usuarios($conexion)
 {
-    $conexion = conectar_bd();
     $sql = "SELECT * FROM usuarios";
     $resultado = mysqli_query($conexion, $sql);
     $usuarios = [];
@@ -25,7 +23,6 @@ function obtener_usuarios()
             $usuarios[] = $fila;
         }
     }
-    desconectar_bd($conexion);
     return $usuarios;
 }
 

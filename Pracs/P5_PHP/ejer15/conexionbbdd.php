@@ -1,5 +1,5 @@
 <?php
-require 'datosbbdd.php';
+require_once 'datosbbdd.php';
 
 function conectar_bd(){
     # Creamos la conexión con las credenciales que hemos establecido en el otro fichero.
@@ -9,16 +9,15 @@ function conectar_bd(){
         echo "<p>Código del error</p>". mysqli_connect_errno();
         echo "<p>Mensaje del error</p>". mysqli_connect_error();
     }else{
-        # Solo cuando nos conectamos a la base de datos es cuando vamos a establecer el charset.
         mysqli_set_charset($db, "utf8");
     }
 
     return $db;
 }
 
-function desconectar_bd($conexion){
+function desconectar_bd($db){
     # Cerramos la conexión
-    mysqli_close($conexion);
+    mysqli_close($db);
 }
 
 ?>
